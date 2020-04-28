@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='feather_favicon.png') }}">
+    <link rel="stylesheet"  type="text/css" href="style.css">
+</head>
+<body>
+<b>Here are your details:</b><br>
+    <pre>Name: {{name}}</pre>
+    <pre>Age: {{age}}</pre>
+    <pre>Company: Accenture</pre>
+    <pre>Domain: Testing</pre>
+<a href="http://127.0.0.1:5000/{{name}}/{{age}}">Go Back</a>
+<script src="script.js" ></script>
+</body>
+</html>

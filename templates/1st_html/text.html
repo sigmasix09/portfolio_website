@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>abhishekdhiman</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='feather_favicon.png') }}">
+    <link rel="stylesheet"  type="text/css" href="static/style.css">
+</head>
+<body>
+Hello {{ name }}.<br>
+You are a {{ age }} year old man, here is the link for your details.<br>
+<a href="http://127.0.0.1:5000/details/{{name}}/{{age}}">Visit Details page</a>
+<script src="static/script.js" ></script>
+</body>
+</html>
