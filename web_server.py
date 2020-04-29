@@ -64,6 +64,9 @@ def contact_form():
 This function writes the details of contact form into a csv file. Add a new line in the csv file.
 Github account: ateamas; for storing these files.
 PythonAnywhere: sigmasix; for creating the website.
+Setting up: https://help.pythonanywhere.com/pages/Flask/
+Website: http://sigmasix09.pythonanywhere.com/index.html
+Projects: 8 project have been mentioned.
 '''
 def write_to_csv(data):
     with open('database.csv', newline='', mode='a') as f1:
