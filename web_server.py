@@ -67,6 +67,7 @@ PythonAnywhere: sigmasix; for creating the website.
 Setting up: https://help.pythonanywhere.com/pages/Flask/
 Website: http://sigmasix09.pythonanywhere.com/index.html
 Projects: 8 project have been mentioned.
+Added 3 project details.
 '''
 def write_to_csv(data):
     with open('database.csv', newline='', mode='a') as f1:
