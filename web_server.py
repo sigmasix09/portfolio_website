@@ -18,6 +18,14 @@ static folder: to store css adn js file
 favicon: {{ python expression }} is jinja templating
 '''
 
+# Step to load to Github
+'''
+git pull
+git add .
+git commit -m"{message}"
+git push
+'''
+
 # web_server.py additional information
 '''
 Anytime we enter '/' (root directory) defines a function hello_world() and returns the value
