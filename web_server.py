@@ -20,10 +20,12 @@ favicon: {{ python expression }} is jinja templating
 
 # Step to load to Github
 '''
+git status
 git pull
 git add .
 git commit -m"{message}"
 git push
+git status
 '''
 
 # web_server.py additional information
