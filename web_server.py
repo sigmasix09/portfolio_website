@@ -84,4 +84,4 @@ def write_to_csv(data):
         subject = data["Subject"]
         message = data["Message"]
         csv_writer = csv.writer(f1, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        csv_writer.writerow([time.asctime(time.time()), email, subject, message])
+        csv_writer.writerow([time.asctime(time.localtime()), email, subject, message])
