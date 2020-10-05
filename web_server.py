@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 import csv
+import time
 # instantiating flask app instance, setting name as main
 app = Flask(__name__)
 print(__name__)
@@ -34,7 +35,7 @@ Anytime we enter '/' (root directory) defines a function hello_world() and retur
 Export flask: set FLASK_APP=web_server.py (name of the server)
 To run: flask run
 Standard Local host: http://127.0.0.1:5000/
-set FLASK_ENV=deployment, to activate debugger so that changes can reflect on refresh
+set FLASK_ENV=development, to activate debugger so that changes can reflect on refresh
 '''
 
 # 1st file's decorators
@@ -69,7 +70,6 @@ def contact_form():
     else:
         return 'Something went wrong, please try again later.'
 
-
 '''
 This function writes the details of contact form into a csv file. Add a new line in the csv file.
 Github account: ateamas; for storing these files.
@@ -84,4 +84,4 @@ def write_to_csv(data):
         subject = data["Subject"]
         message = data["Message"]
         csv_writer = csv.writer(f1, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        csv_writer.writerow([email,subject,message])
+        csv_writer.writerow([time.time(), email, subject, message])
