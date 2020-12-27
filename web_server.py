@@ -26,6 +26,7 @@ git pull
 git add .
 git commit -m"{message}"
 git push
+# if error in pushing: git config --global ssh.postBuffer 524288000
 git status
 '''
 
