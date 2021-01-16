@@ -3,7 +3,6 @@ import csv
 import time
 
 # For messaging to owner.
-#from twilio.base.exceptions import TwilioRestException
 from twilio.rest import Client
 
 # instantiating flask app instance, setting name as main
@@ -99,17 +98,14 @@ an SMS to the owner with the data.
 '''
 def send_data_to_owner(data):
     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
-    try:
-        account_sid = 'AC037704342e85665a2f234084bd1be5fb'
-        auth_token = 'd377c6ed0ff18031c11054c6c4fa8c87'
-        client = Client(account_sid, auth_token)
+    account_sid = 'AC037704342e85665a2f234084bd1be5fb'
+    auth_token = 'd377c6ed0ff18031c11054c6c4fa8c87'
+    client = Client(account_sid, auth_token)
 
-        message = client.messages.create(
-            from_ = '+15202140910',
-            body = str(message_item),
-            to = '+919662667244'
-        )
-        print(message.sid)
-        print("Executed Successfully.")
-    except Exception as e:
-        print(e)
+    message = client.messages.create(
+        from_ = '+15202140910',
+        body = str(message_item),
+        to = '+919662667244'
+    )
+    print(message.sid)
+    print("Executed Successfully.")
