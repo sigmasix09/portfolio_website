@@ -3,7 +3,8 @@ import csv
 import time
 
 # For messaging to owner.
-from twilio.rest import Client
+# from twilio.base.exceptions import TwilioRestException
+# from twilio.rest import Client
 
 # instantiating flask app instance, setting name as main
 app = Flask(__name__)
@@ -70,7 +71,7 @@ def contact_form():
     if request.method == 'POST':
         data = request.form.to_dict()
         write_to_csv(data)
-        send_data_to_owner(data)
+        #send_data_to_owner(data)
         return redirect('/thankyou.html')
     else:
         return 'Something went wrong, please try again later.'
@@ -96,16 +97,19 @@ def write_to_csv(data):
 This function takes the vistor's entered data and send
 an SMS to the owner with the data.
 '''
-def send_data_to_owner(data):
-    message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
-    account_sid = 'AC037704342e85665a2f234084bd1be5fb'
-    auth_token = 'd377c6ed0ff18031c11054c6c4fa8c87'
-    client = Client(account_sid, auth_token)
-
-    message = client.messages.create(
-        from_ = '+15202140910',
-        body = str(message_item),
-        to = '+919662667244'
-    )
-    print(message.sid)
-    print("Executed Successfully.")
+# def send_data_to_owner(data):
+#     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
+#     try:
+#         account_sid = 'AC037704342e85665a2f234084bd1be5fb'
+#         auth_token = 'd377c6ed0ff18031c11054c6c4fa8c87'
+#         client = Client(account_sid, auth_token)
+#
+#         message = client.messages.create(
+#             from_ = '+15202140910',
+#             body = str(message_item),
+#             to = '+919662667244'
+#         )
+#         print(message.sid)
+#         print("Executed Successfully.")
+#     except TwilioRestException as e:
+#         print(e)
