@@ -3,7 +3,7 @@ import csv
 import time
 
 # For messaging to owner.
-from twilio.base.exceptions import TwilioRestException
+#from twilio.base.exceptions import TwilioRestException
 from twilio.rest import Client
 
 # instantiating flask app instance, setting name as main
@@ -111,5 +111,5 @@ def send_data_to_owner(data):
         )
         print(message.sid)
         print("Executed Successfully.")
-    except TwilioRestException as e:
+    except Exception as e:
         print(e)
