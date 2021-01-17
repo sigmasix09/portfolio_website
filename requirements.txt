@@ -1,4 +1,12 @@
 <<<<<<< HEAD
+-f /usr/share/pip-wheels
+beautifulsoup4==4.9.0
+certifi==2020.4.5.1
+chardet==3.0.4
+click==7.1.1
+cycler==0.10.0
+=======
+<<<<<<< HEAD
 argon2-cffi==20.1.0
 astroid==2.4.2
 attrs==19.3.0
@@ -14,10 +22,15 @@ cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.6.0
 entrypoints==0.3
+>>>>>>> eb68e2cc81002ccf47093c1447f243ab6b5944d9
 Flask==1.1.2
 h5py==2.10.0
 idna==2.9
 imageai==2.1.5
+<<<<<<< HEAD
+itsdangerous==1.1.0
+Jinja2==2.11.2
+=======
 img2pdf==0.3.6
 ipykernel==5.3.0
 ipython==7.14.0
@@ -35,10 +48,24 @@ jupyter-console==6.2.0
 jupyter-core==4.6.3
 jupyterlab==2.2.6
 jupyterlab-server==1.2.0
+>>>>>>> eb68e2cc81002ccf47093c1447f243ab6b5944d9
 Keras==2.3.1
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
 kiwisolver==1.2.0
+<<<<<<< HEAD
+MarkupSafe==1.1.1
+oauthlib==3.1.0
+Pillow==7.1.1
+pyparsing==2.4.7
+python-dateutil==2.8.1
+python-dotenv==0.15.0
+PyYAML==5.3.1
+scipy==1.4.1
+six==1.14.0
+soupsieve==2.0
+Werkzeug==1.0.1
+=======
 lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 matplotlib==3.2.1
@@ -206,3 +233,4 @@ widgetsnbextension==3.5.1
 wrapt==1.12.1
 python-dotenv
 >>>>>>> 051fa9e44a506ae38388a72380f3959735ec29b2
+>>>>>>> eb68e2cc81002ccf47093c1447f243ab6b5944d9
