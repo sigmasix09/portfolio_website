@@ -8,6 +8,7 @@ from twilio.base.exceptions import TwilioRestException
 from twilio.rest import Client
 from dotenv import load_dotenv
 
+print(os.getenv('AUTH_TOKEN'), os.getenv('ACCOUNT_SID'))
 
 # instantiating flask app instance setting name as main
 app = Flask(__name__)
@@ -100,19 +101,20 @@ def write_to_csv(data):
 This function takes the visitor's entered data and send
 an SMS to the owner with the data.
 '''
-# def send_data_to_owner(data):
-#     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
-#     try:
-#         account_sid = os.getenv('ACCOUNT_SID')
-#         auth_token = os.getenv('AUTH_TOKEN')
-#         client = Client(account_sid, auth_token)
-#
-#         message = client.messages.create(
-#             from_ = '+15202140910',
-#             body = str(message_item),
-#             to = '+919662667244'
-#         )
-#         print(message.sid)
-#         print("Executed Successfully.")
-#     except TwilioRestException as e:
-#         print(e)
+def send_data_to_owner(data):
+    message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
+    try:
+        account_sid = os.getenv('ACCOUNT_SID')
+        auth_token = os.getenv('AUTH_TOKEN')
+        proxy_client = os.getenv('HTTP_PROXYS')
+        client = Client(account_sid, auth_token, http_client=proxy_client)
+
+        message = client.messages.create(
+            from_ = '+15202140910',
+            body = str(message_item),
+            to = '+919662667244'
+        )
+        print(message.sid)
+        print("Executed Successfully.")
+    except TwilioRestException as e:
+        print(e)
