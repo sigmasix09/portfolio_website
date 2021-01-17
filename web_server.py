@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import csv
 import time
+
 # import os
 
 # For messaging to owner.
@@ -60,13 +61,17 @@ def my_details(username=None, age=None):
 '''
 calling all the pages
 '''
+
+
 @app.route('/')
 def home():
     return render_template('index.html')
 
+
 @app.route('/<string:page_name>')
 def web_name(page_name):
     return render_template(page_name)
+
 
 @app.route('/contact_form', methods=['POST', 'GET'])
 def contact_form():
@@ -78,6 +83,7 @@ def contact_form():
     else:
         return 'Something went wrong, please try again later.'
 
+
 '''
 This function writes the details of contact form into a csv file. Add a new line in the csv file.
 Github account: ateamas; for storing these files.
@@ -86,6 +92,11 @@ Setting up: https://help.pythonanywhere.com/pages/Flask/
 Website: http://sigmasix09.pythonanywhere.com/index.html
 Projects: 8 project have been mentioned
 '''
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b87e737b6eea8ab45cbd305f6ad67b0cd9601bec
 def write_to_csv(data):
     with open('database.csv', newline='', mode='a') as f1:
         email = data["Email"]
