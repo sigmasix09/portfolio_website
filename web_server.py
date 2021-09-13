@@ -21,7 +21,7 @@ app = Flask(__name__)
 print(__name__)
 
 # Applying secret key
-app.secret_key = 'dr@gonb@llsuper123'
+app.secret_key = 'dr@gon_b@ll_super_123'
 
 # Applying security headers
 talisman = Talisman(app)
