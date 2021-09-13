@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Password_Checker’s documentation! &#8212; Password_Checker 1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-password-checker-s-documentation">
+<h1>Welcome to Password_Checker’s documentation!<a class="headerlink" href="#welcome-to-password-checker-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The password_checker module will help user to know the number of times
+their password has been pwned till date so that the user can update the
+password accordingly and prepare better and stronger passwords. The user
+sends a HTTP requst using requests module of python without an actual
+browser interaction. The API request is made from the user side which
+uses ‘K-anonymity’ technique for the anonymized data. In this technique
+the first five characters of the password hash code are sent to the API.
+The <a class="reference external" href="https://passwordsgenerator.net/sha1-hash-generator/">Hash_Generator</a>
+which generates a value of fixed length for each input it gets eg SHA1, md5 etc.
+The important thing is to encode the input in ‘utf-8’ before converting it to hash value.</p>
+<div class="section" id="required-python-libraries">
+<h2>Required Python Libraries<a class="headerlink" href="#required-python-libraries" title="Permalink to this headline">¶</a></h2>
+<p>List of required python libraries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-1-read-pwd-file">
+<h2>Function 1: read_pwd_file<a class="headerlink" href="#function-1-read-pwd-file" title="Permalink to this headline">¶</a></h2>
+<p>The function <code class="xref py py-meth docutils literal notranslate"><span class="pre">read_pwd_file()</span></code> takes file name as the input value
+for a pre-defined directory. The function <code class="xref py py-meth docutils literal notranslate"><span class="pre">pwned_api_check()</span></code>
+function is called to check each password from the provided file.
+:param filename: Contains dummy passwords for testing purpose.
+:return: None</p>
+<p>Example code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_pwd_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_handle</span><span class="p">:</span>
+            <span class="n">pwd_list</span> <span class="o">=</span> <span class="n">file_handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">pwd_list</span><span class="p">:</span>
+                <span class="n">pwned_count</span> <span class="o">=</span> <span class="n">pwned_api_check</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">pwned_count</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Your password was pwned </span><span class="si">{</span><span class="n">pwned_count</span><span class="si">}</span><span class="s1"> times, change your password.&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Your password has not been pwned yet, please continue using it.&#39;</span><span class="p">)</span>
+            <span class="n">file_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">BaseException</span><span class="p">:</span>
+        <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-2-pwned-api-check">
+<h2>Function 2: pwned_api_check<a class="headerlink" href="#function-2-pwned-api-check" title="Permalink to this headline">¶</a></h2>
+<p>The function <code class="xref py py-meth docutils literal notranslate"><span class="pre">pwned_api_check()</span></code> reads the password from the provided
+file and converts it to the hash code. The function resp_api_data is
+called with first 5 hash code characters which returns the API response.
+The fucntion <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_password_leaks_count()</span></code> is called with return value of
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">resp_api_data()</span></code> function and the remaining hash code characters of the password.
+:param password: password
+:return: No. of times passwrod has been pwned.</p>
+<p>Example code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pwned_api_check</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">sha1password</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha1</span><span class="p">(</span><span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">first5_char</span><span class="p">,</span> <span class="n">tail_char</span> <span class="o">=</span> <span class="n">sha1password</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">sha1password</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span>
+    <span class="n">response_value</span> <span class="o">=</span> <span class="n">resp_api_data</span><span class="p">(</span><span class="n">first5_char</span><span class="p">)</span>
+    <span class="n">password_leak_count</span> <span class="o">=</span> <span class="n">get_password_leaks_count</span><span class="p">(</span><span class="n">response_value</span><span class="p">,</span> <span class="n">tail_char</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">password_leak_count</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-3-resp-api-data">
+<h2>Function 3: resp_api_data<a class="headerlink" href="#function-3-resp-api-data" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">resp_api_data()</span></code> fucntion takes the first five characters of the
+password hash code. The function requests the API with first five
+hash characters returns the API response.
+:param first5_char: The first five characters of the password hash code.
+:return: API response</p>
+<p>Example code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resp_api_data</span><span class="p">(</span><span class="n">first5_char</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://api.pwnedpasswords.com/range/</span><span class="si">{</span><span class="n">first5_char</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Error fetching: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">, check and try again.&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-4-get-password-leaks-count">
+<h2>Function 4: get_password_leaks_count<a class="headerlink" href="#function-4-get-password-leaks-count" title="Permalink to this headline">¶</a></h2>
+<p>The function <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_password_leaks_count()</span></code> takes the API response and
+the tail hash characters as inputs. The function compares the tail
+has characters with the hash characters from API response value and
+returns the number of times the hash code is pwned.
+:param response_value: Return value of resp_api_data i.e API response
+:param tail_char: The tail characters of the password hash code.
+:return: no. of times the hash code is pwned.</p>
+<p>Example code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_password_leaks_count</span><span class="p">(</span><span class="n">response_value</span><span class="p">,</span> <span class="n">tail_char</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">response_value</span> <span class="o">=</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">response_value</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+    <span class="k">for</span> <span class="n">hashes</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">response_value</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">tail_char</span> <span class="o">==</span> <span class="n">hashes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">count</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Password_Checker</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Abhishek Dhiman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
