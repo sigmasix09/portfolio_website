@@ -82,11 +82,7 @@ def contact_form():
         data = request.form.to_dict()
         write_to_csv(data)
         print('written to csv')
-<<<<<<< HEAD
         send_data_to_owner(data)
-=======
-        # send_data_to_owner(data)
->>>>>>> 7cc90294456dfa9e906020276a97fb22fe9da3ef
         print('sent to owner')
         return redirect('/thankyou.html')
     else:
@@ -101,8 +97,6 @@ Setting up: https://help.pythonanywhere.com/pages/Flask/
 Website: http://sigmasix09.pythonanywhere.com/index.html
 Projects: 8 project have been mentioned
 '''
-
-
 def write_to_csv(data):
     with open('database.csv', newline='', mode='a') as f1:
         email = data["Email"]
@@ -116,7 +110,6 @@ def write_to_csv(data):
 This function takes the visitor's entered data and send
 an SMS to the owner with the data.
 '''
-<<<<<<< HEAD
 def send_data_to_owner(data):
     print('Abhishek')
     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
@@ -136,24 +129,3 @@ def send_data_to_owner(data):
         print("Executed Successfully.")
     except TwilioRestException as e:
         print(e)
-=======
-# def send_data_to_owner(data):
-#     print('Abhishek')
-#     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
-#     try:
-#         account_sid = os.getenv('ACCOUNT_SID')
-#         auth_token = os.getenv('AUTH_TOKEN')
-#         proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ['https_proxy']})
-#         print(os.environ['HTTP_PROXY'])
-#         client = Client(account_sid, auth_token, http_client = proxy_client)
-#         print(os.environ['HTTPS_PROXY'])
-#         message = client.messages.create(
-#             from_ = '+15202140910',
-#             body = str(message_item),
-#             to = '+919662667244'
-#         )
-#         print(message.sid)
-#         print("Executed Successfully.")
-#     except TwilioRestException as e:
-#         print(e)
->>>>>>> 7cc90294456dfa9e906020276a97fb22fe9da3ef
