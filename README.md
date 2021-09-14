@@ -1,1 +1,1 @@
-This is my portfolio website project
+This website is for personal use.

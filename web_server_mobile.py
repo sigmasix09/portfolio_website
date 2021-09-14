@@ -80,9 +80,7 @@ def contact_form():
     if request.method == 'POST':
         data = request.form.to_dict()
         write_to_csv(data)
-        print('written to csv')
         send_data_to_owner(data)
-        print('sent to owner')
         return redirect('/thankyou.html')
     else:
         return 'Something went wrong, please try again later.'
@@ -119,9 +117,7 @@ def send_data_to_owner(data):
         auth_token = os.getenv('AUTH_TOKEN')
         proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ[
             'https_proxy']})
-        print(os.environ['HTTP_PROXY'])
         client = Client(account_sid, auth_token, http_client = proxy_client)
-        print(os.environ['HTTPS_PROXY'])
         message = client.messages.create(
             from_ = '+15202140910',
             body = str(message_item),

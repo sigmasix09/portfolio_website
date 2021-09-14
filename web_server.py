@@ -81,9 +81,7 @@ def contact_form():
     if request.method == 'POST':
         data = request.form.to_dict()
         write_to_csv(data)
-        print('written to csv')
-        # send_data_to_owner(data)
-        print('sent to owner')
+        send_data_to_owner(data)
         return redirect('/thankyou.html')
     else:
         return 'Something went wrong, please try again later.'
@@ -110,7 +108,6 @@ def write_to_csv(data):
 This function takes the visitor's entered data and send
 an SMS to the owner with the data.
 '''
-
 def send_data_to_owner(data):
     print('Abhishek')
     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
@@ -119,9 +116,7 @@ def send_data_to_owner(data):
         auth_token = os.getenv('AUTH_TOKEN')
         proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ[
             'https_proxy']})
-        print(os.environ['HTTP_PROXY'])
         client = Client(account_sid, auth_token, http_client = proxy_client)
-        print(os.environ['HTTPS_PROXY'])
         message = client.messages.create(
             from_ = '+15202140910',
             body = str(message_item),
