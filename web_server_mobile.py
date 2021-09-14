@@ -65,7 +65,6 @@ def my_details(username=None, age=None):
 calling all the pages
 '''
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -98,7 +97,6 @@ Website: http://sigmasix09.pythonanywhere.com/index.html
 Projects: 8 project have been mentioned
 '''
 
-
 def write_to_csv(data):
     with open('database.csv', newline='', mode='a') as f1:
         email = data["Email"]
@@ -112,13 +110,15 @@ def write_to_csv(data):
 This function takes the visitor's entered data and send
 an SMS to the owner with the data.
 '''
+
 def send_data_to_owner(data):
     print('Abhishek')
     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
     try:
         account_sid = os.getenv('ACCOUNT_SID')
         auth_token = os.getenv('AUTH_TOKEN')
-        proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ['https_proxy']})
+        proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ[
+            'https_proxy']})
         print(os.environ['HTTP_PROXY'])
         client = Client(account_sid, auth_token, http_client = proxy_client)
         print(os.environ['HTTPS_PROXY'])
