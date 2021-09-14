@@ -2,11 +2,6 @@ from flask import Flask, render_template, request, redirect
 import csv
 import time
 
-# Http security libraries
-from flask_talisman import Talisman
-from flask_cors import CORS
-from flask_seasurf import SeaSurf
-
 # trial
 import os
 from twilio.rest import Client
@@ -20,13 +15,6 @@ from twilio.base.exceptions import TwilioRestException
 app = Flask(__name__)
 print(__name__)
 
-# Applying secret key
-app.secret_key = 'dr@gon_b@ll_super_123'
-
-# Applying security headers
-talisman = Talisman(app)
-cors = CORS(app)
-csrf = SeaSurf(app)
 
 # web_server.py file information
 '''
@@ -93,7 +81,9 @@ def contact_form():
     if request.method == 'POST':
         data = request.form.to_dict()
         write_to_csv(data)
+        print('written to csv')
         # send_data_to_owner(data)
+        print('sent to owner')
         return redirect('/thankyou.html')
     else:
         return 'Something went wrong, please try again later.'
@@ -129,8 +119,9 @@ an SMS to the owner with the data.
 #         account_sid = os.getenv('ACCOUNT_SID')
 #         auth_token = os.getenv('AUTH_TOKEN')
 #         proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ['https_proxy']})
+#         print(os.environ['HTTP_PROXY'])
 #         client = Client(account_sid, auth_token, http_client = proxy_client)
-#
+#         print(os.environ['HTTPS_PROXY'])
 #         message = client.messages.create(
 #             from_ = '+15202140910',
 #             body = str(message_item),

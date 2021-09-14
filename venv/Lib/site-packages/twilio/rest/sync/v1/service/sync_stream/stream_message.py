@@ -14,6 +14,8 @@ from twilio.base.page import Page
 
 
 class StreamMessageList(ListResource):
+    """ PLEASE NOTE that this class contains beta products that are subject to
+    change. Use them with caution. """
 
     def __init__(self, version, service_sid, stream_sid):
         """
@@ -63,6 +65,8 @@ class StreamMessageList(ListResource):
 
 
 class StreamMessagePage(Page):
+    """ PLEASE NOTE that this class contains beta products that are subject to
+    change. Use them with caution. """
 
     def __init__(self, version, response, solution):
         """
@@ -108,6 +112,8 @@ class StreamMessagePage(Page):
 
 
 class StreamMessageInstance(InstanceResource):
+    """ PLEASE NOTE that this class contains beta products that are subject to
+    change. Use them with caution. """
 
     def __init__(self, version, payload, service_sid, stream_sid):
         """
