@@ -81,13 +81,7 @@ def contact_form():
     if request.method == 'POST':
         data = request.form.to_dict()
         write_to_csv(data)
-<<<<<<< HEAD
-        print('written to csv')
         send_data_to_owner(data)
-        print('sent to owner')
-=======
-        send_data_to_owner(data)
->>>>>>> bd2e7857e232fd8e79be92617d2246f82a0fd83d
         return redirect('/thankyou.html')
     else:
         return 'Something went wrong, please try again later.'
@@ -101,10 +95,7 @@ Setting up: https://help.pythonanywhere.com/pages/Flask/
 Website: http://sigmasix09.pythonanywhere.com/index.html
 Projects: 8 project have been mentioned
 '''
-<<<<<<< HEAD
-=======
 
->>>>>>> bd2e7857e232fd8e79be92617d2246f82a0fd83d
 def write_to_csv(data):
     with open('database.csv', newline='', mode='a') as f1:
         email = data["Email"]
