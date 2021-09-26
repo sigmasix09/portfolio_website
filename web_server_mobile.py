@@ -10,11 +10,17 @@ from twilio.http.http_client import TwilioHttpClient
 # For messaging to owner.
 from twilio.base.exceptions import TwilioRestException
 
+# importing security headers
+from flask_talisman import Talisman
+from flask_cors import CORS
 
 # instantiating flask app instance setting name as main
 app = Flask(__name__)
 print(__name__)
 
+# implementing security headers
+Talisman(app, frame_options='DENY', content_security_policy={})
+CORS(app, resources={r'*' : {'origins':"http://sigmasix09.pythonanywhere.com/"}}, methods=['GET','POST'])
 
 # web_server.py file information
 '''
