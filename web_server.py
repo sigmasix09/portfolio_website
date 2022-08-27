@@ -96,19 +96,17 @@ def send_data_to_owner(data):
 
     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
     try:
-<<<<<<< HEAD
-        account_sid = os.getenv('ACCOUNT_SID') or "AC037704342e85665a2f234084bd1be5fb"
-        auth_token = os.getenv('AUTH_TOKEN') or "d5d63c2eb1ba3a4e4aa9e06e42a49330"
-=======
         import config
         account_sid = config.AppConfig.ACCOUNT_SID.replace("--", "")
         auth_token = config.AppConfig.AUTH_TOKEN.replace("--", "")
->>>>>>> 49ab3fe2eebb6ca5198e5c88a601e7724c566dec
+        print("here 1")
         proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ[
             'https_proxy']})
+        print("here 2")
         client = Client(account_sid, auth_token, http_client = proxy_client)
+        print("here 3")
         message = client.messages.create(
-            from_ = '+19035825628',
+            from_ = '+15202140910',
             body = str(message_item),
             to = '+919662667244'
         )

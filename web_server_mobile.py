@@ -99,9 +99,12 @@ def send_data_to_owner(data):
         import config
         account_sid = config.AppConfig.ACCOUNT_SID.replace("--", "")
         auth_token = config.AppConfig.AUTH_TOKEN.replace("--", "")
+        print("here 1")
         proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ[
             'https_proxy']})
+        print("here 2")
         client = Client(account_sid, auth_token, http_client = proxy_client)
+        print("here 3")
         message = client.messages.create(
             from_ = '+15202140910',
             body = str(message_item),
