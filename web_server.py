@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect
 import csv
 import time
 
-# trial
+# For receiving messaging
 import os
 from twilio.rest import Client
 from twilio.http.http_client import TwilioHttpClient
@@ -36,24 +36,6 @@ static folder: to store css adn js file
 favicon: {{ python expression }} is jinja templating
 '''
 
-# Step to load to Github
-'''
-git status
-git pull
-git add .
-git commit -m"{message}"
-git push
-git status
-'''
-
-# web_server.py additional information
-'''
-Anytime we enter '/' (root directory) defines a function hello_world() and returns the value
-Export flask: set FLASK_APP=web_server.py (name of the server)
-To run: flask run
-Standard Local host: http://127.0.0.1:5000/
-set FLASK_ENV=development, to activate debugger so that changes can reflect on refresh
-'''
 
 # 1st file's decorators
 '''
@@ -66,11 +48,6 @@ def hello_world(username=None, age=None):
 def my_details(username=None, age=None):
     return render_template('details.html', name=username, age=age)
 '''
-
-'''
-calling all the pages
-'''
-
 
 @app.route('/')
 def home():
@@ -110,16 +87,18 @@ def write_to_csv(data):
         csv_writer = csv.writer(f1, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([time.asctime(time.localtime()), email, subject, message])
 
-'''
-This function takes the visitor's entered data and send
-an SMS to the owner with the data.
-'''
+
 def send_data_to_owner(data):
-    print('Abhishek')
+    '''
+    This function takes the visitor's entered data and send
+    an SMS to the owner with the data.
+    '''
+
     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
     try:
-        account_sid = os.getenv('ACCOUNT_SID')
-        auth_token = os.getenv('AUTH_TOKEN')
+        import config
+        account_sid = config.AppConfig.ACCOUNT_SID.replace("--", "")
+        auth_token = config.AppConfig.AUTH_TOKEN.replace("--", "")
         proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ[
             'https_proxy']})
         client = Client(account_sid, auth_token, http_client = proxy_client)
