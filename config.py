@@ -1,3 +1,3 @@
 class AppConfig:
-    ACCOUNT_SID = "--AC037704342e85665a--2f234084bd1be5fb--"
-    AUTH_TOKEN = "--d5d63c2eb1ba3a4--e4aa9e06e42a49330--"
+    ACCOUNT_SID = "--ACf770833232aed8e--1be76b094900429fd--"
+    AUTH_TOKEN = "--4518c6280b99e2fa68fa8b--f05ff9b976--"
