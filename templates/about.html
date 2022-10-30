@@ -46,6 +46,7 @@
       <ul class="nav">
         <li><a href="./index.html" title="">Home</a></li>
         <li><a href="./about.html" title="">About</a></li>
+        <li><a href="{{ url_for('static', filename='./docs/Curriculum_Vitae_Abhishek_Dhiman.pdf') }}" title="">Curriculum_Vitae</a></li>
         <li><a href="./Certifications.html" title="">Certifications</a></li>
         <li><a href="./contact.html" title="">Contact</a></li>
         <!-- Commenting out components -->
@@ -70,12 +71,17 @@
       <h1>About me</h1>
 
       <p>
-        1996: Born<br>
+        Born: 1996 July 18th<br>
         Haryana, India.
       </p>
 
       <h3>Education </h3>
 
+      <p>
+        2022 - 2024: Master's in Aeronautical Engineering<br>
+        Linkoping University (LiU)<br>
+        Linkoping, Sweden.<br>
+      </p>
       <p>
         2014 - 2018: Bachelor's in Aeronautical Engineering<br>
         Dayananda Sagar College of Engineering<br>
@@ -90,6 +96,7 @@
         Have made me mentally sharp and physically strong.<br>
       </p>
 
+      <a href="{{ url_for('static', filename='./docs/Curriculum_Vitae_Abhishek_Dhiman.pdf') }}" class="btn btn-primary" title=""> Curriculum_Vitae</a>
       <a href="contact.html" class="btn btn-primary" title=""> Get in touch</a>
     </div>
   </div>
