@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="3e022e02-a663-49a5-8c01-bda78ee92f38" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/portfolio_website" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Certifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Certifications.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/components.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/components.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project_1.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project_1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project_3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project_3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project_4.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project_4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project_5.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project_5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project_6.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project_6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project_7.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project_7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/project_8.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project_8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/thankyou.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/thankyou.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
