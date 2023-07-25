@@ -22,6 +22,15 @@ print(__name__)
 Talisman(app, frame_options='DENY', content_security_policy={})
 CORS(app, resources={r'*' : {'origins':"http://sigmasix09.pythonanywhere.com/"}}, methods=['GET','POST'])
 
+'''
+Git commands
+0. git pull origin
+1. git status
+2. git add .
+3. git commit -m'commit_message'
+4. git push
+'''
+
 # web_server.py file information
 '''
 This script is for web development purpose.
@@ -103,9 +112,9 @@ def send_data_to_owner(data):
             'https_proxy']})
         client = Client(account_sid, auth_token, http_client = proxy_client)
         message = client.messages.create(
-            from_ = '+18302220433',
+            from_ = config.AppConfig.sender_num,
             body = str(message_item),
-            to = '+919662667244'
+            to = config.AppConfig.receiver_num
         )
         print(message.sid)
         print("Executed Successfully.")

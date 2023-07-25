@@ -1,3 +1,5 @@
 class AppConfig:
-    ACCOUNT_SID = "--ACf770833232aed8e--1be76b094900429fd--"
-    AUTH_TOKEN = "--4518c6280b99e2fa68fa8b--f05ff9b976--"
+    ACCOUNT_SID = "--AC7c0934ae4094bec--ef697671008746641--"
+    AUTH_TOKEN = "--733a5312aec1c8a03--648c98f68a64c7a--"
+    sender_num = '+12295455284'
+    receiver_num = '+919662667244'
