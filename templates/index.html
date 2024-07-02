@@ -46,11 +46,11 @@
         </p>
       </div>
       <ul class="nav">
-        <li><a href="./index.html" title="">Home</a></li>
-        <li><a href="./about.html" title="">About</a></li>
-        <li><a href="{{ url_for('static', filename='./docs/Curriculum_Vitae_Abhishek_Dhiman.pdf') }}" title="">Curriculum_Vitae</a></li>
-        <li><a href="./Certifications.html" title="">Certifications</a></li>
-        <li><a href="./contact.html" title="">Contact</a></li>
+        <li><a href="./index.html" target="_blank" title="">Home</a></li>
+        <li><a href="./about.html" target="_blank" title="">About</a></li>
+        <li><a href="{{ url_for('static', filename='./docs/Curriculum_Vitae_Abhishek_Dhiman.pdf') }}" target="_blank" title="">Curriculum_Vitae</a></li>
+        <li><a href="./Certifications.html" target="_blank" title="">Certifications</a></li>
+        <li><a href="./contact.html" target="_blank" title="">Contact</a></li>
         <!-- Commenting out components page -->
         <!--li><a href="./components.html" title="">Components</a></li-->
 
@@ -73,6 +73,18 @@
           <div class="grid-sizer"></div>
 
       <div class="grid-item">
+        <img class="img-responsive" alt="" src="./static/assets/images/Octree_tree.png">
+        <a href="./project_9.html" target="_blank" class="project-description">
+          <div class="project-text-holder">
+            <div class="project-text-inner">
+              <h4>Master Thesis at Siemens Energy AB</h4>
+              <p>Discover more</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="grid-item">
         <img class="img-responsive" alt="" src="./static/assets/images/project1_1.png">
         <a href="./project_1.html" target="_blank" class="project-description">
           <div class="project-text-holder">
@@ -83,6 +95,7 @@
           </div>
         </a>
       </div>
+
 
       <div class="grid-item">
         <img class="img-responsive" alt="" src="./static/assets/images/Bangalore_Restaurant.png">
