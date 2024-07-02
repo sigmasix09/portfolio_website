@@ -23,6 +23,16 @@ Talisman(app, frame_options='DENY', content_security_policy={})
 CORS(app, resources={r'*' : {'origins':"http://sigmasix09.pythonanywhere.com/"}}, methods=['GET','POST'])
 
 '''
+install requirements.txt : pip install -r requirements.txt
+
+to see all branchs: git branch -a
+delete local branch: git branch -d branch-name
+delete remote branch: git push origin -d branch-name
+# change terminal to CMD
+set FLASK_ENV=development
+set FLASK_APP=web_server.py
+flask run
+
 Git commands
 0. git pull origin
 1. git status
