@@ -38,7 +38,7 @@ Git commands
 1. git status
 2. git add .
 3. git commit -m'commit_message'
-4. git push
+4. git push origin master or git push
 '''
 
 # web_server.py file information
