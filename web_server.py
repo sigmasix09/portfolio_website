@@ -1,3 +1,8 @@
+"""
+Author: Abhishek Dhiman
+Email: sigmasix09@gmail.com
+"""
+
 from flask import Flask, render_template, request, redirect
 import csv
 import time
@@ -20,29 +25,32 @@ print(__name__)
 
 # implementing security headers
 Talisman(app, frame_options='DENY', content_security_policy={})
-CORS(app, resources={r'*' : {'origins':"http://sigmasix09.pythonanywhere.com/"}}, methods=['GET','POST'])
+CORS(app, resources={r'*': {'origins': "http://sigmasix09.pythonanywhere.com/"}}, methods=['GET', 'POST'])
 
 '''
-install requirements.txt : pip install -r requirements.txt
+Step 1: Install requirements using terminal (cmd)
+pip install -r requirements.txt
 
-to see all branchs: git branch -a
-delete local branch: git branch -d branch-name
-delete remote branch: git push origin -d branch-name
-# change terminal to CMD
-set FLASK_ENV=development
-set FLASK_APP=web_server.py
-flask run
+Step 2: Important git commands
+    1. To see all branches: git branch -a
+    2. Delete local branch: git branch -d branch-name
+    3. Delete remote branch: git push origin -d branch-name
+    4. Pull changes from remote: git pull origin
+    5. Check the status of current branch: git status
+    6. Add changes to commit: git add .
+    7. Commit or save changes to branch: git commit -m'commit_message'
+    8. Push the changes to remote or local: git push origin master or git push
 
-Git commands
-0. git pull origin
-1. git status
-2. git add .
-3. git commit -m'commit_message'
-4. git push origin master or git push
+Step 3: Running local host server
+    1. Environment variable for ENV: set FLASK_ENV=development
+    2. Environment variable for APP: set FLASK_APP=web_server.py
+    3. Command to run the flask app: flask run
+
 '''
 
-# web_server.py file information
 '''
+##### web_server.py file information #####
+
 This script is for web development purpose.
 It works on 3 basic files: html(text on te web page), CSS(styling), JS(behaviour/actions)
 When browser make request, the server send the 3 files to it and display the request web page.
@@ -55,7 +63,6 @@ static folder: to store css adn js file
 favicon: {{ python expression }} is jinja templating
 '''
 
-
 # 1st file's decorators
 '''
 @app.route('/<username>/<int:age>')
@@ -67,6 +74,7 @@ def hello_world(username=None, age=None):
 def my_details(username=None, age=None):
     return render_template('details.html', name=username, age=age)
 '''
+
 
 @app.route('/')
 def home():
@@ -90,13 +98,15 @@ def contact_form():
 
 
 '''
-This function writes the details of contact form into a csv file. Add a new line in the csv file.
+This function writes the details of contact form into a csv file.
+Add a new line in the csv file.
 Github account: ateamas; for storing these files.
 PythonAnywhere: sigmasix; for creating the website.
 Setting up: https://help.pythonanywhere.com/pages/Flask/
 Website: http://sigmasix09.pythonanywhere.com/index.html
 Projects: 8 project have been mentioned
 '''
+
 
 def write_to_csv(data):
     with open('database.csv', newline='', mode='a') as f1:
@@ -108,10 +118,10 @@ def write_to_csv(data):
 
 
 def send_data_to_owner(data):
-    '''
+    """
     This function takes the visitor's entered data and send
     an SMS to the owner with the data.
-    '''
+    """
 
     message_item = [time.asctime(time.localtime()), data["Email"], data["Subject"], data["Message"]]
     try:
@@ -120,11 +130,11 @@ def send_data_to_owner(data):
         auth_token = config.AppConfig.AUTH_TOKEN.replace("--", "")
         proxy_client = TwilioHttpClient(proxy={'http': os.environ['http_proxy'], 'https': os.environ[
             'https_proxy']})
-        client = Client(account_sid, auth_token, http_client = proxy_client)
+        client = Client(account_sid, auth_token, http_client=proxy_client)
         message = client.messages.create(
-            from_ = config.AppConfig.sender_num,
-            body = str(message_item),
-            to = config.AppConfig.receiver_num
+            from_=config.AppConfig.sender_num,
+            body=str(message_item),
+            to=config.AppConfig.receiver_num
         )
         print(message.sid)
         print("Executed Successfully.")
