@@ -46,6 +46,10 @@ Step 3: Running local host server
     2. Environment variable for APP: set FLASK_APP=web_server.py
     3. Command to run the flask app: flask run
 
+Step 4: Cleaning temp files on pythonanywhere.com
+    1. Bash command: rm -rf /tmp/* /tmp/.*
+    2. Bash command: rm -rf ~/.cache/*
+
 '''
 
 '''
