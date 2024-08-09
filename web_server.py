@@ -28,8 +28,20 @@ Talisman(app, frame_options='DENY', content_security_policy={})
 CORS(app, resources={r'*': {'origins': "http://sigmasix09.pythonanywhere.com/"}}, methods=['GET', 'POST'])
 
 '''
-Step 1: Install requirements using terminal (cmd)
-pip install -r requirements.txt
+Step 1
+    0. Use python 3.10.11 for integrity of all python packages
+    1. Use command prompt to clone the git repository to required directory
+    2. git clone <repo url>
+    3. open the IDE (pycharm) and open the directory as project
+    4. Setup the python interpreter
+    5. Install the packages using terminal: pip install -r requirements.txt
+    
+    0. Create virtual env as per the local python version but could harm python packages used
+    1. creating virtual environment: python -m venv venv
+    2. activate venv: venv\Scripts\activate.bat
+    3. Change (Pycharm): Tools > terminal > shell path > cmd.exe
+    3. Read more: https://python.land/virtual-environments/virtualenv
+
 
 Step 2: Important git commands
     1. To see all branches: git branch -a
