@@ -37,7 +37,7 @@ Step 1
     5. Install the packages using terminal: pip install -r requirements.txt
     
     0. Create virtual env as per the local python version but could harm python packages used
-    1. creating virtual environment: python -m venv venv
+    1. creating virtual environment: python -m venv venv or use VScode/IDE settings 
     2. activate venv: venv\Scripts\activate.bat
     3. Change (Pycharm): Tools > terminal > shell path > cmd.exe
     3. Read more: https://python.land/virtual-environments/virtualenv
