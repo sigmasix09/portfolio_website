@@ -53,11 +53,16 @@ Step 2: Important git commands
     7. Commit or save changes to branch: git commit -m'commit_message'
     8. Push the changes to remote or local: git push origin master or git push
 
-Step 3: Running local host server
+Step 3: DONT USE local host server
     1. Environment variable for ENV: set FLASK_ENV=development
     2. Environment variable for APP: set FLASK_APP=web_server.py
     3. Command to run the flask app: flask run
 
+Step 3v2: New Commands local host server
+    1. Environment variable for ENV: export FLASK_DEBUG=1
+    2. Environment variable for APP: export FLASK_APP=web_server.py
+    3. Command to run the flask app: flask run
+    
 Step 4: Cleaning temp files on pythonanywhere.com
     1. Bash command: rm -rf /tmp/* /tmp/.*
     2. Bash command: rm -rf ~/.cache/*
